@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Car-Reservation-Management</title>
+    <script src="https://kit.fontawesome.com/6ac93262d0.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="style1.css">
+    <style>
+       #addResHeading {
+        text-align: center;
+       }
+       #updatingResHeading {
+        text-align: center;
+       }
+        
+
+        
+    </style>
+
+</head>
+
+<body>
+    <div id="logo">
+        <a href="http://127.0.0.1:5500/Home.html"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAARMAAAC3CAMAAAAGjUrGAAABPlBMVEX///8AAAAgICD8/PweHh4iIiIbGxvOzs7///4ZGRnExMQUFBT8///Z2dn29vYICAgPDw+FhYXb29ssLCzs7Ow0NDTn5+f//P/x8fGnp6dbW1s6OjqkpKTi4uL5//18fHy3t7eSkpJeXl5TU1Nzc3NJSUnlw8zKysqysrJ4eHj/0tjcKTb4LT3vMT2MjIz+/vdoaGj/9PX/2uP65+bnjY/OMzzcLTjeIj3WPlXtm5zbW2n8LkbgbYHkf4XWfInahpDelZrxs7zcLEbs//7yysPnubzce4Lmp6j/7vvpITT5x8/3qLXeOUP/G0XYWX3xq77zfo3tSFn3MTj35975DzPxaHbhxMHqVG/0IknzucbsLjfwRE7viJbkW3P12dj/y8nsx9fkybXu6truj4viFSPbrKjec3jWVl3eL1DpeXlGJaDfAAAKMElEQVR4nO2ZC1fbOBbHJctP7NhuEuKEBOdBUl42JqUlFLelkDJMoLPbUjplKUt3d3bYme//BfZeOa/S2UNnZ1J6Tu+vp4mlyML66+reK5kxgiAIgiAIgiAIgiAIgiAIgiAIgiAIgiAIgiAIgiAIgiAIgiAIgiAIgiAIgiAIgiAIgiAIgiAIgiAIgiCIL4RpBiJ0zO6DtTEPAuYwFpj46Th3/YB3QJI4Ybj18NH69nq8Hm9vD9a3ezuPu8IJzAS0Adi3JwtKshunURTFCH5Fgyfd0BGJCEOTfYO2EgRO8jSOHj15tvdc8uzZbi9NUZQgdLIWwV0/5BcmDJytXtRbG487YMn+QZReJn2nK0TAgmztCFbO5TNyeRfK4paO3Ry0H5dEGbjtluzvIIsrG6v12jIWP+emP5kkcF7E8TX4jRBwgkD0+8nhepp+tyVrhBDDpTPHJywZtz5qDpoVhtcgYBuKy5/1RILlOpz7lu9xu3YHijAzMdlRdLEfClPOvAMidAN2dBCnv+y9+B6Wz5QmiqIp8B8+LF67rec8V/Tq8Bq6rvsaNz7vmWrc0lT4M5qi8qXi/zeuP0QSsr1ocOyEJgDeNDDBWkR48jJOf+j95a9djMdZS9REkVZiaYrGF2/pOMe1kSaoNtqJwW5fCYKtcJDeguYefPtLX95SMOC+Pe1dwcBNOXqUxoSAc/Xq0SBNoyddKGVNURPeMJaNuQUbripsyqnIbzEqyovMTsZ1xkpj5cac40+CsRu+qaSomuItNEq5pq5rChqkmDQYXgn3z5XhY5xAvD596cLIMeyCJLISRHHK+7u9uLePqkmkJtI6REHXvKasdBuVjcrcaGys3Kg1K5nbyGWagL80DGNZLObyubK8LrJ8pblSwuHBrwZcL7I81A+H2QQz8e7JHosWWorUIbdS26g0UFQBTcGbGfhXZwOksUl08TrAJQPp7Aj0tbCcjganT81wGIsnmrCqrvEVvNgAEwdfyDNfWK6DwUNRx99G/iSPq63NlqSPhQa8ga083kRJSh285LXNbGXhkOctWHMiU6zBs/q5Apf38LYryrB+PQO8cGtWmjAzeHN28SqAkCzwI1s7ZigC+Oe4g+jtMEsZaQJ27FY8TeU40UtQpVu6pvFVGIFbhSnWbR1cY22syWJBVzhMe8tWYHT3fEWZ91VVU6WoxQKUVVv1C7BIctLYSlzT/Obw4dxlMLEiW+a6YvncBy+2ycrzulLo2Kq1OTNNEvPF2cVjsBEwB9QkAxQJ4ctJ43cfaaJ3gHkPLhowgg3QgFdb8/iwMMJNH0bWaRXQ2ywPfWypamm8DZPesrVME5AT/IWq6UvoeEGAaqsKHWqgCbKMyt9YFqCntVRZgZtVXnbnYQ503eMLs9PEORxEuz/ev+9CLnJ/RBHkuTr88XCAmpgTTRTVsixd0exNWP1FcIEeLAG3bat6R5S4Kj1vuWVpdgvtxOqwjq14bVwGI01UzVsR7j1P0wtF1wYp6mB5aD5DTeZAphuJTBFXEC7aDirnzoOV2Z1K4zMj++/HEf2r9bPz8/Rgy3G2Xg8GUTQA9pMw3Pshik9P37l9NqWJzT3u2arm60WoQCnQK4Ar5KUVjnOfRRyFC/ycXwIbb2PcEAtDTTS7Dm2KqqoWystgMVoZc1VrShPlRiIjRKlYLkKoaaABgia6oi/NMu6YsNV7fp7GUQ806b6G/d8FbATTvwVu+Co9v4h7RwH4W4zTUhO/WavVKnVdVewFVvMUf1X20gGfa2z4ytARgGY8vwjNVWzYln5ivHY8DOLFAmoCPdqZV1iylMna0WDtCCkGK5WLRReCTHNBg7lQMjuBoDezmCOBnD44fvw6Ooe07cH76P1Pl5dv0+gy7Ltv4/jV5WES9jNJMh9bkjeBGppdavoKTDqyYKncWLU1L8tuCzjVaCeIxhtsau0o0EZMNLFualJG5bNehShy24bb69y3bQg7E03ybJZAhAkd52Q9fnd4/Pc4fpo44VUvOjj68LSXnmNKC/6Wje0ElzUmFRw8pVHxdDACpAMDzqGdbMiiD78uoiaaX7AUfR7Tit/SZBlDk4zi2tjHojyaJqUXrIl+ptTAjKXVXDGW9EwTxc/NVBNYGUHY/37nIkoH0cXBFcaeJ/IkJe0dhgITlaGTnbIT+aw5VKZQhuKirSpesTFK5g0MLOBPIKa0i1U9m/ZpTYZrp1iE8MMbUITgPrITVoFe7QXpLxoY4KqsbmuZ2FVV+SKaoCosDNd2waekO8dOHyTqPluPTk8PTiBRAV8rpuKOv9EEWugbNYyKit0qujkwEwg0LgfX2y67uYKu2quYxyoFvEuVsXXhUzspolAKbzUXoM3YTtwqRCNb26jUWmAf6Fs2IXY1R5Mi4443Y00cHHXodD/s7e1vOUEYQkbbffH44dGbMEgSE4vOWBPFhjzVhz2gwmHmINJAINI5bksM3M9iUYWi6ufHuf0mBOp5l0GA/lSTRUjwNMuz7El+IlhOszD14x4EIxXTvSZYjl6vrYLrHvmTWdsJWEkAXqRvmjJtE0mIy0WEcB3gseP0WYEit/D4xG3HxNQe5cEIXcGA20Z1YAdnY1zIy6UEw0dvUEc78W5qAgFlHryoz+sdVR3bCTMKHu68sSO+Ad2WwGygT9srgEbGF9Akuf+PfAndrINZBOTzIEgQJPI0xUzKi1f//JdsN9x8ZMyvDrOquU52xDR8xkZVFjfzON1woWJlDavmcL8zx1bhEze6Jawr4b64UW/fm4NgPvYnKEtTy/5OK6vL481cazThc8O1xnujGeH89O+zQXSavts7RNeBMQbcaj9wulc/X7+PIZmLdrakJjfOMWQZ967GXM6d/FqGojwC+PgY4eNrMdpGt+v1uvSmhfH2ctgsN9doGOVxTdlYXpzu4taTzz/EdXr+/vz9y+2LQe+7taQPsTd0kvDN0U56FkH+FkXR+ZYJsVhMH2KMSsM6wW4U5dXoqEMMm4+qx2MSrOr5MPHCbdqwLXSnDknE6O9kpdE9405mekrrPOz11uMI/sWnZ+fXa2AqTv/NZU++2jiP416vt9s1Jw84Zvr86COx2FiYccOJGmMJs2900n51qYoxuTm5Z9zlVMdT9zEx25NrJ3mxdnxycnm904OU5HT7cTcUa//B9zzrB7sPT072PxxvOeZsXvDAyDa5rqq6ruocMpK7OI/+TRyMLU4oumuPd2ClnD9Mjn9Jo8H2rx+25GtACMWzelbst5J55UJl1j7i95AkSSjfGYdh+WQnjXq/PkrjeO8KT1QEel35enQ2yCVQMuaMEpssuq8AyFVZIL/CkHWfD9Cx7F7h3jA7x2fOl3k3+rXo8SnB4SBKr7e+tRfE/xuBKe3PZ9ducCdvJL9KhDBFENzvBrjtM+/6aQiCIAiCIAiCIAiCIAiCIAiCIAiCIAiCIAiCIAiCIAiCIAiCIAiCIAiCIAiCIAiCIAiCIAiCIAiCIAiCIL4e/gvxS/sz2/C/OAAAAABJRU5ErkJggg==" alt="Car Booking Logo"></a>
+        <h2>Car Reservation Sytem</h2>
+         </div>
+        
+    <h2>Reservation Management</h2>
+
+    <div id="searchBar">
+        <button id="btn" onclick="showForm()">Add Reservation</button>
+        <input type="search" placeholder="search" id="search">
+        <button id="searchButton" onclick="searchButtonClicked()">search</button>
+
+
+    </div>
+
+    <form id="reservationForm">
+        <fieldset>
+            <!-- <legend> Add Reservation Form -->
+            <p id="addResHeading" style="display: none;"> Add Reservation</p>
+            <p id="updatingResHeading" style="display: none;" > Updating Reservation</p>
+            <a id="clear" href=""><i style="font-size:24px" class="fa">&#xf00d;</i></a>
+            <table>
+
+                <tr>
+                    <td> <label for="reservationId">Reservation ID:</label></td>
+                    <td> <input type="number" id="reservationId" name="reservationId"></td>
+                </tr>
+                <tr>
+                    <td> <label for="carName">Car Name:</label></td>
+                    <td><input type="text" id="carName" name="carName"></td>
+                </tr>
+                <tr>
+                    <td> <label for="carId">Car ID:</label></td>
+                    <td><input type="number" id="carId" name="carId"></td>
+                </tr>
+                <tr>
+                    <td><label for="firstName">First Name:</label></td>
+                    <td><input type="text" id="firstName" name="firstName"></td>
+                </tr>
+                <tr>
+                    <td> <label for="lastName">Last Name:</label></td>
+                    <td> <input type="text" id="lastName" name="lastName"></td>
+                </tr>
+                <tr>
+                    <td> <label for="bookingFromDate">Booking From Date:</label></td>
+                    <td><input type="date" id="bookingFromDate" name="bookingFromDate"></td>
+                </tr>
+                <tr>
+                    <td><label for="bookingtoDate">Booking To Date:</label></td>
+                    <td> <input type="date" id="bookingtoDate" name="bookingtoDate"></td>
+
+                </tr>
+                <tr>
+                    <td> <label for="source">Departure Location:</label></td>
+                    <td><select id="source" name="source">
+                            <option value="">Select Source</option>
+                            <option value="Bangalore">New York</option>
+                            <option value="Tumkur">London</option>
+                            <option value="Pavagada">Paris</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td> <label for="destination">Return Location:</label></td>
+                    <td> <select id="destination" name="destination">
+                            <option value="">Select Destination</option>
+                            <option value="Bangalore">New York</option>
+                            <option value="Tumkur">London</option>
+                            <option value="Pavagada">Paris</option>
+                        </select></td>
+                </tr>
+                <tr>
+                    <td> <label>Is Return:</label></td>
+                    <td><input type="radio" id="isReturnYes" name="isReturn" value="Yes">
+                        <label for="isReturnYes">Yes</label>
+                        <input type="radio" id="isReturnNo" name="isReturn" value="No">
+                        <label for="isReturnNo">No</label>
+                    </td>
+                    <td></td>
+                </tr>
+                <tr>
+
+                    <td>
+                        <label id="returnDatecon" style="display: none;" for="returnDate">Return Date:</label>
+                    </td>
+                    <td id="returnDateContainer" style="display:none;"><input type="date" id="returnDate"
+                            name="returnDate"></td>
+
+                </tr>
+                <tr>
+                    <td><label for="isChildPassenger">Is Child Passenger:</label></td>
+                    <td><input type="checkbox" id="isChildPassenger" name="isChildPassenger"></td>
+                </tr>
+            </table>
+
+
+<!-- 
+            <div id="returnDateContainer" style="display:none;">
+                <label for="returnDate">Return Date:</label>
+                <input type="date" id="returnDate" name="returnDate">
+            </div> -->
+
+
+            <button type="submit">Submit</button>
+            <button type="reset" onclick="closeForm()">Cancel</button>
+            
+            <!-- </legend> -->
+       
+        </fieldset>
+    </form>
+
+
+    <table id="reservationsTable">
+        <thead>
+            <tr>
+                <th>Reservation ID</th>
+                <th>Car Name</th>
+                <th>Car ID</th>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Booking From Date</th>
+                <th>Booking To Date</th>
+                <th>Departure Location</th>
+                <th>Return Location</th>
+                <th>Return Date</th>
+                <th>Is Child Passenger</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody id="reservationsTableBody">
+            <h2 id="noData">No Reservations available</h2>
+            <p id="seachingReservations"></p>
+        </tbody>
+    </table>
+
+    <div class="Footer-Section">
+        <a href="https://twitter.com/i/flow/login?input_flow_data=%7B%22requested_variant%22%3A%22eyJsYW5nIjoiZW4ifQ%3D%3D%22%7D">
+            <i class="fa fa-twitter"></i></a>
+        <a href="https://www.facebook.com/"><i class='fa fa-facebook-official'></i></a>
+        <a href="https://www.instagram.com/"><i class='fa fa-instagram'></i></a>
+        <span>created by jaikumar@2023</span>
+
+
+    </div>
+    <script src="./Res_man.js"></script>
+</body>
+
+</html>
+
+<!-- </table> -->
+
+<!-- <script src="./script.js"></script>
+
+</body>
+
+</html> --> -->

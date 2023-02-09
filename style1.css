@@ -1,0 +1,116 @@
+
+#reservationsTable {
+    margin-top: 20px;
+    border-collapse: collapse;
+    width: 100%;
+  }
+  
+  #reservationsTable th, #reservationsTable td {
+    border: 1px solid #272525;
+    padding: 8px;
+    text-align: left;
+  }
+  
+  #reservationsTable th {
+    background-color: #EEEEEE;
+  } 
+  
+  button {
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    background-color: darkgreen;
+    color: #FFFFFF;
+    cursor: pointer;
+    margin-right: 10px;
+  }
+  
+  button:hover {
+    background-color: #3E8E41;
+  }
+  body {
+    background-color: rgb(241, 234, 226);
+  }
+  #logo{
+    display: flex;
+    background-color: rgb(26 20 25 / 1)
+}
+#logo h2 {
+   margin-left: 500px;
+   margin-top: 41px;
+   color: rgb(202 188 188);
+}
+#logo img {
+    height: 110px;
+    object-fit: contain;
+    
+
+} 
+#id1 {
+  width: 300px;
+}
+
+#reservationForm {
+
+  position: absolute;
+  /* z-index: 2; */
+  display: none;
+  background-color: rgb(241, 234, 226);
+  left: 35%;
+  top: 25vh;
+}
+
+#reservationForm {
+  width: 400px;
+}
+#searchBar{
+  float: right;
+  margin-bottom: 20px;
+}
+#search {
+ height: 31px;
+}
+#noData {
+  position: absolute;
+  margin-top: 100px;
+  margin-left: 720px;
+  
+}
+#seachingReservations {
+  position: absolute;
+  margin-top: 100px;
+  margin-left: 720px;
+}
+
+body {
+  margin: 0%;
+}
+.Footer-Section {
+  background-color: #0d0b1ac9;
+  text-align: center;
+  height: 47px;
+ 
+  position:absolute;
+  bottom:0;
+  width: 100%;
+}
+.Footer-Section a  {
+
+  font-size: xx-large;
+  color: rgb(202 188 188);
+  padding: 0px 20px;
+  
+}
+
+.Footer-Section span  {
+ 
+ color:rgb(202 188 188);
+ padding: 0px 50px;
+ 
+} 
+#clear {
+ float: right;
+ margin-top: -45px;
+}
+
+    

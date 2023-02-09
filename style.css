@@ -1,0 +1,116 @@
+* {
+  
+    box-sizing: border-box;
+    
+  }
+   body {
+    margin: 0px;
+    padding: 0%;
+  }
+  html {
+    font-family: "Lucida Sans", sans-serif;
+  }
+  .Home-container {
+    display: grid;
+    grid-template-columns: auto auto;
+    background-color: rgb(26 20 25 / 1)
+  
+    
+  }
+  #logo img {
+     height: 110px;
+     object-fit: contain;
+  
+  }
+
+ #Website-Name {
+  grid-area: 1 / 2 / span 1 / span 1;
+  margin-top: 10px;
+  color: rgb(202 188 188);
+  margin-right: 150px;
+
+  
+ }
+#image  {
+  grid-area: 2 / 1/ span 1 / span 2;
+  text-align: center;
+  height: 600px;
+  position: relative;
+
+}
+.desc {
+ 
+  position: absolute;
+  color:rgb(202 188 188);
+  margin-left: 500px;
+  margin-top: 650px;
+  font-size: 15px;
+
+}
+#image img{
+  width: 100%;
+  height: 600px;
+  object-fit: cover;
+  margin: 0%;
+}
+.Reservation-Management {
+  grid-area: 3 / 1 / span 1 / span 1;;
+  display: grid;
+  text-align: center;
+  font-size: x-large;
+
+
+}
+.Reservation-Details {
+  grid-area: 3 / 2 / span 1 / span 1 / span 1;
+  display: grid;
+  text-align: center;
+  font-size: x-large;
+ 
+}
+
+a {
+  text-decoration: none;
+  color: rgb(202 188 188);
+  
+}
+#icon1 {
+  display: grid;
+  grid-area: 4 / 1 / span 1 / span 1;
+
+}
+#icon2 {
+  display: grid;
+  grid-area: 4 / 2 / span 1 / span 1;
+  
+}
+
+ .Footer-Section a  {
+ 
+  font-size: xx-large;
+  color: rgb(202 188 188);
+  padding: 0px 20px;
+  
+}
+.Footer-Section span  {
+ 
+   color:rgb(202 188 188);
+  padding: 0px 50px;
+  
+} 
+.Footer-Section {
+  background-color: #0d0b1ac9;
+  text-align: center;
+  height: 47px;
+}
+#desc {
+  position: absolute;
+}
+
+
+
+
+
+  
+
+
