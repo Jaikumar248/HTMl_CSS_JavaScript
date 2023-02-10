@@ -12,7 +12,7 @@
   }
   .Home-container {
     display: grid;
-    grid-template-columns: auto auto;
+    grid-template-columns: 1fr 1fr 1fr;
     background-color: rgb(26 20 25 / 1)
   
     
@@ -24,27 +24,18 @@
   }
 
  #Website-Name {
-  grid-area: 1 / 2 / span 1 / span 1;
+  grid-area: 1 / 2 / span 1 / span 2;
   margin-top: 10px;
   color: rgb(202 188 188);
-  margin-right: 150px;
+  /* margin-right: 150px; */
 
   
  }
 #image  {
-  grid-area: 2 / 1/ span 1 / span 2;
+  grid-area: 2 / 1/ span 1 / span 3;
   text-align: center;
   height: 600px;
   position: relative;
-
-}
-.desc {
- 
-  position: absolute;
-  color:rgb(202 188 188);
-  margin-left: 500px;
-  margin-top: 650px;
-  font-size: 15px;
 
 }
 #image img{
@@ -62,7 +53,7 @@
 
 }
 .Reservation-Details {
-  grid-area: 3 / 2 / span 1 / span 1 / span 1;
+  grid-area: 3 / 3 / span 1 / span 1;
   display: grid;
   text-align: center;
   font-size: x-large;
@@ -103,9 +94,60 @@ a {
   text-align: center;
   height: 47px;
 }
-#desc {
-  position: absolute;
+#image #desc {
+  
+  /* position: absolute; */
+  color:rgb(202 188 188);
+  margin-left: 0px;
+  margin-top: -40px;
+  font-size: 15px;
 }
+@media screen and (max-width: 768px) and (min-width: 319px) {
+  * {
+    box-sizing: border-box;
+  }
+  #logo {
+    grid-area: 1 / 1 / span 1 / span 1;
+  }
+  #Website-Name1 {
+    grid-area: 1 / 2 / span 1 / span 1;
+    margin-left: 15px;
+    font-size: larger;
+    padding: 20px;
+  }
+  #image  {
+    grid-area: 2 / 1 / span 1 / span 3;
+    width: 100%;
+    height: 600px;
+    object-fit: cover;
+    margin: 0%;
+  }
+  #image img {
+    height: 600px;
+    width: 100%;
+    object-fit: fill;
+  }
+ 
+  .Reservation-Management {
+    grid-area: 3 / 1 / span 1 / span 1;
+    font-size: small;
+  }
+  .Reservation-Details {
+    grid-area: 3 / 3 / span 1 / span 1;
+    font-size: small;
+  }
+  .Footer-Section span {
+    grid-area: 5 / 2 / span 1 / span 1;
+  }
+  .Footer-Section {
+    height: 55px;
+  }
+  .Footer-Section a i {
+    grid-area: 4 / 2 / span 1 / span 1;
+  }
+
+}
+
 
 
 

@@ -7,6 +7,7 @@ const searchBody = document.querySelector("#search");
 const searchButton = document.querySelector("#searchButton");
 const returnDatecon = document.querySelector("#returnDatecon");
 let noData = document.querySelector("#noData");
+let returnDate = document.querySelector("#returnDate");
 noData.style.display = "none";
 
 
@@ -26,6 +27,7 @@ isReturnRadioNo.addEventListener("change", () => {
   if(isReturnRadioNo.checked){
     returnDateContainer.style.display = "none";
     returnDatecon.style.display = "none";
+    document.getElementById("returnDate").value = "";
   }
 })
 
@@ -56,13 +58,30 @@ reservationForm.addEventListener("submit", (event) => {
         reservationForm.removeEventListener();
     }
   });
+ 
+  let currentDate = new Date();
+  bookingFromDate = new Date(document.getElementById("bookingFromDate").value);
+  if(currentDate > bookingFromDate){
+   
+    alert("Invalid BookingFromDate");
+    return false;
+  }
+  if(bookingFromDate > bookingToDate) {
+    alert("Invalid BookToDate ");
+    return false;
+  }
+  if(bookingToDate > returnDate) {
+    alert("Inavid Return Date");
+    return false;
+  }
 
   // Check if all required fields are filled
   // validations 
   if (!reservationId || !carName || !source || !destination || !bookingFromDate || !bookingToDate || !carId || !firstName || !lastName) {
-    if (!reservationId) {
+    if (/[0-9]/.test(reservationId.value) == false) {
       document.getElementById("reservationId").style.borderColor = "red";
     }
+
     if (!carName) {
       document.getElementById("carName").style.borderColor = "red";
     }
@@ -96,6 +115,8 @@ reservationForm.addEventListener("submit", (event) => {
   document.getElementById("carId").style.border.Color = "";
   document.getElementById("firstName").style.border.Color = "";
   document.getElementById("lastName").style.border.Color = "";
+  // document.getElementById("bookingFromDate").style.border.Color = "";
+  // document.getElementById("bookingToDate").style.border.Color = "";
  
 
 
@@ -123,7 +144,8 @@ reservationForm.addEventListener("submit", (event) => {
   reservationForm.reset();
   document.getElementById("searchButton").disabled = false;
   document.getElementById("searchButton").style.opacity = 1.0;
-  
+  document.getElementById("btn").style.opacity = 1.0;
+  location.reload();
 });
 
 function renderReservations(searchData) {
@@ -155,8 +177,6 @@ function renderReservations(searchData) {
     });
   }
   else {
-
-    // console.log("REACHED")
 
     reservations.forEach((reservation, index) => {
         console.log(reservation);
@@ -243,6 +263,7 @@ function editReservation(index) {
   function showForm() {
     document.getElementById("reservationForm").style.display = "inline-block";
     document.getElementById("addResHeading").style.display = "block";
+    document.getElementById("btn").style.opacity = 0.3;
     disableButton();
     disableSearchButton();
     
@@ -274,6 +295,7 @@ function editReservation(index) {
   }
   function closeForm() {
     document.getElementById("reservationForm").style.display = "none";
+    document.getElementById("btn").style.opacity = 1.0;
 
     enableButton();
     enableSearchButton();

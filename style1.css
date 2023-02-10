@@ -1,10 +1,19 @@
+#reservationForm {
+  position: absolute;
+  display: none;
+  background-color: rgb(241, 234, 226);
+  left: 35%;
+  top: 25vh;
+  width: 400px;
+}
 
-#reservationsTable {
-    margin-top: 20px;
-    border-collapse: collapse;
-    width: 100%;
-  }
-  
+#seachingReservations {
+  position: absolute;
+  margin-top: 100px;
+  margin-left: 720px;
+}
+
+
   #reservationsTable th, #reservationsTable td {
     border: 1px solid #272525;
     padding: 8px;
@@ -24,6 +33,10 @@
     cursor: pointer;
     margin-right: 10px;
   }
+  #clear {
+    float: right;
+    margin-top: -45px;
+   }
   
   button:hover {
     background-color: #3E8E41;
@@ -31,10 +44,129 @@
   body {
     background-color: rgb(241, 234, 226);
   }
-  #logo{
-    display: flex;
-    background-color: rgb(26 20 25 / 1)
+  #logo img {
+    height: 110px;
+    object-fit: contain;
+ 
+ }
+.reservationManagementContainer {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr ;
 }
+
+#logo  {
+  grid-area: 1 / 1 / span 1 / span 1;
+  background-color: rgb(26 20 25 / 1)
+} 
+#website_Name {
+  grid-area: 1 / 2 / span 1 / span 2;
+  color: rgb(202 188 188);
+  background-color: rgb(26 20 25 / 1)
+}
+h2 {
+  grid-area: 2 / 1 / span 1 / 4;
+}
+#searchBar {
+  grid-area: 3/ 3 / span 1 / span 1;
+}
+.table{
+  grid-area: 4 / 1 / span 1 / span 3;
+
+}
+#reservationsTable{
+  border-collapse: collapse;
+  width: auto;
+  text-align: center;
+}
+.Footer-Section {
+  grid-area: 5 / 1 / span 1 / span 3;
+  background-color: #0d0b1ac9;
+  text-align: center;
+  height: 47px;
+  position:fixed;
+  bottom:0 ;
+  width: 100%;
+ 
+}
+
+body {
+  margin: 0%;
+}
+
+.Footer-Section a  {
+ 
+  font-size: xx-large;
+  color: rgb(202 188 188);
+  padding: 0px 20px;
+  
+}
+
+.Footer-Section span  {
+ 
+ color:rgb(202 188 188);
+ padding: 0px 50px;
+ 
+} 
+#search {
+  height: 31px;
+ }
+ #noData {
+  position: absolute;
+  margin-top: 100px;
+  margin-left: 720px;
+  
+}
+
+ @media screen and (max-width: 768px) and (min-width: 319px) {
+  * {
+    box-sizing: border-box;
+  }
+  #logo {
+    grid-area: 1 / 1 / span 1 / 2;
+  }
+  #website_Name {
+    grid-area: 1 / 3 / span 1 / 4;
+    margin-left: 15px;
+    font-size: larger;
+    padding: 20px;
+  }
+  .table{
+    grid-area: 4 / 1 / span 1 / span 3;
+  
+  }
+  #reservationsTable{
+    border-collapse: collapse;
+    width: auto;
+  }
+  
+
+ }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    /* #logo{
+      display: flex;
+      background-color: rgb(26 20 25 / 1)
+  }
 #logo h2 {
    margin-left: 500px;
    margin-top: 41px;
@@ -50,19 +182,7 @@
   width: 300px;
 }
 
-#reservationForm {
 
-  position: absolute;
-  /* z-index: 2; */
-  display: none;
-  background-color: rgb(241, 234, 226);
-  left: 35%;
-  top: 25vh;
-}
-
-#reservationForm {
-  width: 400px;
-}
 #searchBar{
   float: right;
   margin-bottom: 20px;
@@ -113,4 +233,4 @@ body {
  margin-top: -45px;
 }
 
-    
+     */
