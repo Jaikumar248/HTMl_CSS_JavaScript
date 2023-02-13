@@ -102,7 +102,7 @@ a {
   margin-top: -40px;
   font-size: 15px;
 }
-@media screen and (max-width: 768px) and (min-width: 319px) {
+@media screen and (max-width: 1024px) and (min-width: 319px) {
   * {
     box-sizing: border-box;
   }
@@ -113,7 +113,7 @@ a {
     grid-area: 1 / 2 / span 1 / span 1;
     margin-left: 15px;
     font-size: larger;
-    padding: 20px;
+    padding: 2px;
   }
   #image  {
     grid-area: 2 / 1 / span 1 / span 3;

@@ -35,10 +35,10 @@
     
         <div id="searchBar">
             <button id="btn" onclick="showForm()">Add Reservation</button>
+        </div>
+        <div id="searchButton">
             <input type="search" placeholder="search" id="search">
             <button id="searchButton" onclick="searchButtonClicked()">search</button>
-    
-    
         </div>
     
         <form id="reservationForm">
@@ -138,8 +138,8 @@
             </fieldset>
         </form>
     
-        <div class="table">
-            <table id="reservationsTable" style="overflow-x:auto;">
+        <div class="table" style="overflow-x:auto;">
+            <table id="reservationsTable">
                 <thead>
                     <tr>
                         <th>Reservation ID</th>
@@ -153,7 +153,7 @@
                         <th>Return Location</th>
                         <th>Return Date</th>
                         <th>Is Child Passenger</th>
-                        <th>Actions</th>
+                        <th id="action">Actions</th>
                     </tr>
                 </thead>
                 <tbody id="reservationsTableBody">

@@ -21,18 +21,19 @@ isReturnRadioYes.addEventListener("change", () => {
     returnDateContainer.style.display = "block";
     returnDatecon.style.display = "block";
 
-  } 
+  }
 });
 isReturnRadioNo.addEventListener("change", () => {
-  if(isReturnRadioNo.checked){
+  if (isReturnRadioNo.checked) {
     returnDateContainer.style.display = "none";
     returnDatecon.style.display = "none";
     document.getElementById("returnDate").value = "";
   }
 })
 
+// reservationForm.addEventListener("submit",  dateValidition);
 reservationForm.addEventListener("submit", (event) => {
-  event.preventDefault(); 
+  event.preventDefault();
 
   const reservationId = document.querySelector("#reservationId").value;
   const carName = document.querySelector("#carName").value;
@@ -53,42 +54,51 @@ reservationForm.addEventListener("submit", (event) => {
   // Check if reservation ID is unique
   reservations.forEach((reservation) => {
     if (reservation.reservationId === reservationId) {
-        reservationForm.reset()
-        alert("Reservation ID must be unique. Please enter a different ID.");
-        reservationForm.removeEventListener();
+      reservationForm.reset()
+      alert("Reservation ID must be unique. Please enter a different ID.");
+      reservationForm.removeEventListener();
     }
   });
- 
-  let currentDate = new Date();
-  bookingFromDate = new Date(document.getElementById("bookingFromDate").value);
-  if(currentDate > bookingFromDate){
-   
-    alert("Invalid BookingFromDate");
+  let q = new Date();
+  let m = q.getMonth() + 1;
+  let d = q.getDay();
+  let y = q.getFullYear();
+
+  let todayDate = new Date(y, m, d);
+  if (todayDate <= bookingFromDate) {
+    alert("Invalid Book From Date");
     return false;
+    console.log(bookingFromDate);
   }
-  if(bookingFromDate > bookingToDate) {
+
+  if (bookingFromDate > bookingToDate) {
     alert("Invalid BookToDate ");
     return false;
   }
-  if(bookingToDate > returnDate) {
+  if (bookingToDate > returnDate) {
     alert("Inavid Return Date");
     return false;
   }
 
-  // Check if all required fields are filled
+
+
+
+
   // validations 
   if (!reservationId || !carName || !source || !destination || !bookingFromDate || !bookingToDate || !carId || !firstName || !lastName) {
-    if (/[0-9]/.test(reservationId.value) == false) {
+
+    if (typeof (reservationId) !== "number") {
+      alert("Reservation Id Must be Number");
       document.getElementById("reservationId").style.borderColor = "red";
     }
 
     if (!carName) {
       document.getElementById("carName").style.borderColor = "red";
     }
-  
-   
+
+
     if (!bookingFromDate) {
-       document.getElementById("bookingFromDate").style.borderColor = "red";
+      document.getElementById("bookingFromDate").style.borderColor = "red";
     }
     if (!bookingToDate) {
       document.getElementById("bookingToDate").style.borderColor = "red";
@@ -102,12 +112,12 @@ reservationForm.addEventListener("submit", (event) => {
     if (!lastName) {
       document.getElementById("lastName").style.borderColor = "red";
     }
-   
+
 
     alert("All fields except Return Date are mandatory. Please fill in the missing fields.");
     return;
   }
-  
+
 
   // Remove red border from fields
   document.getElementById("reservationId").style.border.Color = "";
@@ -117,7 +127,7 @@ reservationForm.addEventListener("submit", (event) => {
   document.getElementById("lastName").style.border.Color = "";
   // document.getElementById("bookingFromDate").style.border.Color = "";
   // document.getElementById("bookingToDate").style.border.Color = "";
- 
+
 
 
   const reservation = {
@@ -133,9 +143,9 @@ reservationForm.addEventListener("submit", (event) => {
     isReturn,
     returnDate,
     isChildPassenger
-    
+
   };
- 
+
   // console.log(reservations);
   reservations.push(reservation);
   localStorage.setItem("localData", JSON.stringify(reservations));
@@ -152,10 +162,10 @@ function renderReservations(searchData) {
   let rows = "";
 
 
-  if(searchData === undefined){
+  if (searchData === undefined) {
     reservations.forEach((reservation, index) => {
-    
-        rows += `
+
+      rows += `
         <tr>
             <td>${reservation.reservationId}</td>
             <td>${reservation.carName}</td>
@@ -179,9 +189,9 @@ function renderReservations(searchData) {
   else {
 
     reservations.forEach((reservation, index) => {
-        console.log(reservation);
-        if ((reservation.reservationId).includes(searchData) || (reservation.carName).includes(searchData) || (reservation.firstName).includes(searchData)) {
-            rows += `
+      console.log(reservation);
+      if ((reservation.reservationId).includes(searchData) || (reservation.carName).includes(searchData) || (reservation.firstName).includes(searchData)) {
+        rows += `
             <tr>
                 <td>${reservation.reservationId}</td>
                 <td>${reservation.carName}</td>
@@ -200,108 +210,110 @@ function renderReservations(searchData) {
                 </td>
             </tr>
             `;
-        }
-        else {
-          document.getElementById("seachingReservations").innerHTML = "NO Data Found";
-        }
+      }
+      else {
+        document.getElementById("seachingReservations").innerHTML = "NO Data Found";
+      }
     });
-    
+
   }
   reservationsTableBody.innerHTML = rows;
-  if(reservations.length === 0) {
+  if (reservations.length === 0) {
     noData.style.display = "block";
   }
   else {
-    noData.style.display ="none";
+    noData.style.display = "none";
   }
 }
 
 function editReservation(index) {
-    
-    document.getElementById("addResHeading").innerHTML = "Updating Reservation";
-    
-    const reservation = reservations[index];
-    
 
-    document.querySelector("#reservationId").value = reservation.reservationId;
-    document.querySelector("#carName").value = reservation.carName;
-    document.querySelector("#carId").value = reservation.carId
-    document.querySelector("#firstName").value = reservation.firstName
-    document.querySelector("#lastName").value = reservation.lastName
-    document.querySelector("#bookingFromDate").value = reservation.bookingFromDate
-    document.querySelector("#bookingtoDate").value = reservation.bookingToDate
-    document.querySelector("#source").value = reservation.source;
-    document.querySelector("#destination").value = reservation.destination;
-    document.querySelector("#isReturnYes").checked = reservation.isReturn;
-    document.querySelector("#returnDateContainer").value = reservation.returnDateContainer;
-    document.querySelector("#returnDatecon").value = reservation.returnDatecon;
-    
-    document.querySelector("#isChildPassenger").checked = reservation.isChildPassenger;
-    if (reservation.isReturn) {
-      returnDateContainer.style.display = "block";
-      returnDatecon.style.display = "block";
-      document.querySelector("#returnDate").value = reservation.returnDate;
-    }
-     else {
-      returnDateContainer.style.display = "none";
-    }
-    
-    
-   
-    reservations.splice(index, 1);
-    showForm();
+  document.getElementById("addResHeading").innerHTML = "Updating Reservation";
+
+  const reservation = reservations[index];
+
+
+  document.querySelector("#reservationId").value = reservation.reservationId;
+  document.querySelector("#carName").value = reservation.carName;
+  document.querySelector("#carId").value = reservation.carId
+  document.querySelector("#firstName").value = reservation.firstName
+  document.querySelector("#lastName").value = reservation.lastName
+  document.querySelector("#bookingFromDate").value = reservation.bookingFromDate
+  document.querySelector("#bookingtoDate").value = reservation.bookingToDate
+  document.querySelector("#source").value = reservation.source;
+  document.querySelector("#destination").value = reservation.destination;
+  document.querySelector("#isReturnYes").checked = reservation.isReturn;
+  document.querySelector("#returnDateContainer").value = reservation.returnDateContainer;
+  document.querySelector("#returnDatecon").value = reservation.returnDatecon;
+
+  document.querySelector("#isChildPassenger").checked = reservation.isChildPassenger;
+  if (reservation.isReturn) {
+    returnDateContainer.style.display = "block";
+    returnDatecon.style.display = "block";
+    document.querySelector("#returnDate").value = reservation.returnDate;
   }
-  
-  function deleteReservation(index) {
-    alert("Are you want to Delete...")
-    reservations.splice(index, 1);
-    localStorage.setItem("localData", JSON.stringify(reservations));
-    
-    renderReservations();
+  else {
+    returnDateContainer.style.display = "none";
   }
 
-  function showForm() {
-    document.getElementById("reservationForm").style.display = "inline-block";
-    document.getElementById("addResHeading").style.display = "block";
-    document.getElementById("btn").style.opacity = 0.3;
-    disableButton();
-    disableSearchButton();
-    
-  }
 
-  function disableButton() {
-    for (let i=0;i<document.getElementsByClassName("deleteButton").length;i++){
-      document.getElementsByClassName("editButton")[i].disabled = true;
-      document.getElementsByClassName("deleteButton")[i].disabled = true;
-      document.getElementsByClassName("deleteButton")[i].style.opacity = 0.3;
-      document.getElementsByClassName("editButton")[i].style.opacity = 0.3;
-    } 
-  }
-  function enableButton() {
-    for (let i=0;i<document.getElementsByClassName("deleteButton").length;i++){
-      document.getElementsByClassName("editButton")[i].disabled = false;
-      document.getElementsByClassName("deleteButton")[i].disabled = false;
-      document.getElementsByClassName("deleteButton")[i].style.opacity = 1.0;
-      document.getElementsByClassName("editButton")[i].style.opacity = 1.0;
-    } 
-  }
-  function disableSearchButton() {
-    document.getElementById("searchButton").disabled = true;
-    document.getElementById("searchButton").style.opacity = 0.3;
-  }
-  function enableSearchButton() {
-    document.getElementById("searchButton").disabled = false;
-    document.getElementById("searchButton").style.opacity = 1.0;
-  }
-  function closeForm() {
-    document.getElementById("reservationForm").style.display = "none";
-    document.getElementById("btn").style.opacity = 1.0;
 
-    enableButton();
-    enableSearchButton();
-  }
+  reservations.splice(index, 1);
+  showForm();
+}
 
-  function searchButtonClicked() {
-    renderReservations(searchBody.value);
+function deleteReservation(index) {
+  alert("Are you want to Delete...")
+  reservations.splice(index, 1);
+  localStorage.setItem("localData", JSON.stringify(reservations));
 
+  renderReservations();
+}
+
+function showForm() {
+  document.getElementById("reservationForm").style.display = "inline-block";
+  document.getElementById("addResHeading").style.display = "block";
+  document.getElementById("btn").style.opacity = 0.3;
+  document.getElementById("noData").style.display = "none";
+  disableButton();
+  disableSearchButton();
+
+}
+
+function disableButton() {
+  for (let i = 0; i < document.getElementsByClassName("deleteButton").length; i++) {
+    document.getElementsByClassName("editButton")[i].disabled = true;
+    document.getElementsByClassName("deleteButton")[i].disabled = true;
+    document.getElementsByClassName("deleteButton")[i].style.opacity = 0.3;
+    document.getElementsByClassName("editButton")[i].style.opacity = 0.3;
   }
+}
+function enableButton() {
+  for (let i = 0; i < document.getElementsByClassName("deleteButton").length; i++) {
+    document.getElementsByClassName("editButton")[i].disabled = false;
+    document.getElementsByClassName("deleteButton")[i].disabled = false;
+    document.getElementsByClassName("deleteButton")[i].style.opacity = 1.0;
+    document.getElementsByClassName("editButton")[i].style.opacity = 1.0;
+  }
+}
+function disableSearchButton() {
+  document.getElementById("searchButton").disabled = true;
+  document.getElementById("searchButton").style.opacity = 0.3;
+}
+function enableSearchButton() {
+  document.getElementById("searchButton").disabled = false;
+  document.getElementById("searchButton").style.opacity = 1.0;
+}
+function closeForm() {
+  document.getElementById("reservationForm").style.display = "none";
+  document.getElementById("btn").style.opacity = 1.0;
+  document.getElementById("noData").style.display = "block";
+
+  enableButton();
+  enableSearchButton();
+}
+
+function searchButtonClicked() {
+  renderReservations(searchBody.value);
+
+}
